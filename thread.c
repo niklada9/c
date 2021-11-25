@@ -2,12 +2,20 @@
 #include <unistd.h>
 #include <pthread.h>
 
+int global = 0xdeadbeef;
+
 void* one(void* arg){
-    for(;;) printf("one\n");
+    for(;;) {
+        global--;
+        printf("one: %x\n", global);
+        }
 }
 
 void* two(void* arg){
-    for(;;) printf("two\n");
+    for(;;) {
+        global++;
+        printf("two: %x\n", global);
+    }
 }
 
 int main()
@@ -16,6 +24,7 @@ int main()
 
    pthread_create(&tid, NULL, one, NULL);
    pthread_create(&tid, NULL, two, NULL);
-
-    return 0;
+    
+   pthread_join(tid, NULL);
+   return 0;
 }

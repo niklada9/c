@@ -2,11 +2,11 @@
 #include <unistd.h>
 
 void parent(void){
-    for(;;) printf("parent");
+    for(;;) printf("parent\n");
 }
 
 void child(void){
-    for(;;) printf("child");
+    for(;;) printf("child\n");
 }
 
 int main(){
@@ -17,8 +17,9 @@ pid = fork();
     {
        child();
     }
-    else{
-        parent;
+    else
+    {
+        parent();
         }
 
 //for(;;) printf("%d\n", pid);

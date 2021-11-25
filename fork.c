@@ -5,6 +5,6 @@ int main(){
 
 int pid;
 pid = fork();
-printf("%d\n", pid);
+for(;;) printf("%d\n", pid);
 }
 //remark

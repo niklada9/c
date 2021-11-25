@@ -12,8 +12,10 @@ void* two(void* arg){
 
 int main()
 {
-    one(NULL);
-    two(NULL);
+   pthread_t tid;
+
+   phread_create(&tid, NULL, one, HULL);
+   phread_create(&tid, NULL, two, HULL);
 
     return 0;
 }

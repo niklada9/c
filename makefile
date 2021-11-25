@@ -1,4 +1,4 @@
-CFLAGS=-Wall
+CFLAGS="-Wall -pthread"
 
 main: main.o f.o 
 

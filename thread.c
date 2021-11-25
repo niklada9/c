@@ -14,8 +14,8 @@ int main()
 {
    pthread_t tid;
 
-   phread_create(&tid, NULL, one, HULL);
-   phread_create(&tid, NULL, two, HULL);
+   pthread_create(&tid, NULL, one, NULL);
+   pthread_create(&tid, NULL, two, NULL);
 
     return 0;
 }

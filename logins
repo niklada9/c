@@ -4,8 +4,19 @@
 
 #cut -f 1 -d : /etc/passwd
 # -h?
-if [$1==-h]
-    echo "this is a help"
-else
-    cut -f 1 -d : /etc/passwd
-fi
+#if [$1==-h]
+#    echo "this is a help"
+#else
+#    cut -f 1 -d : /etc/passwd
+#fi
+case $1 in
+-t) cut -f 1 -d : /etc/passwd
+;;
+-x).....
+;;
+-h) echo "this is a help"
+;;
+*) cat /etc/passwd
+;;
+esac
+

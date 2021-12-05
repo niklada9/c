@@ -2,19 +2,19 @@
 
 #Scrips to see logins
 
-#cut -f 1 -d : /etc/passwd
-# -h?
-#if [$1==-h]
-#    echo "this is a help"
-#else
-#    cut -f 1 -d : /etc/passwd
-#fi
 case $1 in
 -t) cut -f 1 -d : /etc/passwd
 ;;
--x).....
+-x) sort -t: -k 1 /etc/passwd | cut -f 1 -d :
 ;;
--h) echo "this is a help"
+-s) sort -t: -nk 3 /etc/passwd | cut -f 1,3 -d :
+;;
+-h) echo "
+# -h выводит help
+# -t выводит первую колонку
+# -x сортирует по имени и выводи первую колонку
+# -s сортирует по UID
+"
 ;;
 *) cat /etc/passwd
 ;;

@@ -1,23 +1,22 @@
-dfasdf l;sdfkj asdf ;
-aadf ;lkj ;lkj  klklj;
-kjkljkl;
-kljljlj jlkj; jkljlkj;
-asdfas jkljl;
-$
-sadf
-sdf
-sdff
-asdf
-ljkljlj{}
-sdsf
+Free tier for your compute engine services covers:
 
-$
-asdf;'sdfaa';;
+1 non-preemptible e2-micro VM instance per month in one of the following US regions:
+- Oregon: us-west1
+- Iowa: us-central1
+- South Carolina: us-east1
+Google Cloud Support, Fe2:35 PM
+30 GB-months standard persistent disk
+Google Cloud Support, Fe2:35 PM
+1 GB network egress from North America to all region destinations (excluding China and Australia) per month
+Google Cloud Support, Fe2:35 PM
+Compute Engine free tier does not charge for an external IP address.
 
-asd;
-sadf
-sdf
-sdff
-sadf
-sdf
-sdff
+One more thing about the free tier, please be advised that there are eligibilities to be on free tier:
+
+You're eligible for the Free Tier program if you meet the following criteria:
+
+1. You do not have a negotiated pricing contract or a custom rate card with Google.
+2. You are actively in the Free Trial period or you have upgraded your Cloud Billing account to a paid account.
+3. Your Cloud Billing account is active and in good standing.
+Google Cloud Support, Fe2:51 PM
+https://cloud.google.com/free/docs/gcp-free-tier#free-tier

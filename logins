@@ -1,22 +1,26 @@
-#!/bin/bash 
+#!/bin/bash -x
 
 #Scrips to see logins
 fcolumn=1
 scolumn=1
+numkey=-n
+
+help(){
+echo -e " 
+-h выводит help\n-f сортирует по первой колонке\n
+"
+
+}
 
 case $1 in
--f) fcolumn=1
+-f) numkey=""
 ;;
 -s) scolumn=3
 ;;
 -u) fcolumn=3
 ;;
--h) echo "
-# -h выводит help
-# -f сортирует по имени и выводит имя (первая колонка)
-# -s сортирует по имени и выводит имя и UID 
-# -u сортирует по UID и выводит имя и UID
-" 
+-h) help
+ 
 exit
 ;;
 *) cat /etc/passwd
@@ -24,4 +28,4 @@ exit
 ;;
 esac
 
-sort -t : -nk $fcolumn /etc/passwd | cut -f $fcolumn,$scolumn -d :
+getent passwd | sort -t : -k  $fcolumn $numkey | cut -f $fcolumn,$scolumn -d :

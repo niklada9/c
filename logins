@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 #Scrips to see logins
 sortf=1
@@ -32,3 +32,4 @@ do
     echo -e "${login}\t${uid}\${gid}\t${home}\t${shell}"
 done
 
+getent passwd | sort -t : -k  $fcolumn $numkey | cut -f $fcolumn,$scolumn -d :

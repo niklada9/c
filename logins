@@ -24,7 +24,7 @@ getent passwd | sort -k $sortf -t : $sortc |
 while read LINE
 do
     login='echo "$LINE" | cut -f 1 -d :'
-    echo -e "${login}\t"
+    echo  "$login"
 done
 
 

@@ -2,11 +2,13 @@
 
 #Scrips to see logins
 sortf=1
+sortc=""
 
 help(){
 echo -e " 
 -h выводит help\n-f сортирует по первой колонке\n
 "
+exit 0
 }
 
 case $1 in
@@ -14,8 +16,6 @@ case $1 in
 ;;
 -t) sortf=3
     sortc=-n
-;;
--x) 
 ;;
 *) 
 ;;
@@ -29,7 +29,7 @@ do
     shell='echo $LINE | cut -f 6 -d :'
     home='echo $LINE | cut -f 7 -d :'
 
-    echo -e "${login}\t${uid}\${gid}\t${home}\t${shell}"
+    echo -e "${login}\t${uid}\t${gid}\t${home}\t${shell}"
 done
 
-getent passwd | sort -t : -k  $fcolumn $numkey | cut -f $fcolumn,$scolumn -d :
+

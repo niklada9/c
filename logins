@@ -1,27 +1,34 @@
 #!/bin/bash
 
 #Scrips to see logins
-field_name = 1
-field_uid = 3
-sort_field_name = 3
+sortf=1
+
+help(){
+echo -e " 
+-h выводит help\n-f сортирует по первой колонке\n
+"
+}
 
 case $1 in
--t) sort -t: | cut -f 1 -d : /etc/passwd
+-h) help
 ;;
--x) sort -t: -k 1 /etc/passwd | cut -f 1 -d :
+-t) sortf=3
+    sortc=-n
 ;;
--s) sort -t: -nk 3 /etc/passwd | cut -f 1,3 -d :
+-x) 
 ;;
-sort -t: -nk $sort_field_name /etc/passwd | cut -f 1,3 -d :
-;;
--h) echo "
-# -h выводит help
-# -t выводит первую колонку
-# -x сортирует по имени и выводи первую колонку
-# -s сортирует по UID
-"
-;;
-*) cat /etc/passwd
+*) 
 ;;
 esac
+getent passwd | sort -k $sortf -t : $sortc | 
+while read LINE
+do
+    login='echo $LINE | cut -f 1 -d :'
+    uid='echo $LINE | cut -f 3 -d :'
+    gid='echo $LINE | cut -f 4 -d :'
+    shell='echo $LINE | cut -f 6 -d :'
+    home='echo $LINE | cut -f 7 -d :'
+
+    echo -e "${login}\t${uid}\${gid}\t${home}\t${shell}"
+done
 

@@ -23,13 +23,8 @@ esac
 getent passwd | sort -k $sortf -t : $sortc | 
 while read LINE
 do
-    login='echo $LINE | cut -f 1 -d :'
-    uid='echo $LINE | cut -f 3 -d :'
-    gid='echo $LINE | cut -f 4 -d :'
-    shell='echo $LINE | cut -f 6 -d :'
-    home='echo $LINE | cut -f 7 -d :'
-
-    echo -e "${login}\t${uid}\t${gid}\t${home}\t${shell}"
+    login='echo "$LINE" | cut -f 1 -d :'
+    echo -e "${login}\t"
 done
 
 
